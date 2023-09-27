@@ -20,7 +20,7 @@ describe('Login test', () => {
       password: 'error'
     }
 
-    cy.api_login(login)
+    cy.api_loginFailure(login)
       .should(({ status, body }) => {
         expect(status).to.equal(401)
         expect(body).property('message', 'Email e/ou senha inválidos')

@@ -7,6 +7,17 @@ Cypress.Commands.add('api_login', login => {
         body: {
           email: login.email,
           password: login.password
+        }
+      })
+})
+
+Cypress.Commands.add('api_loginFailure', login => {
+    cy.request({
+        method: 'POST',
+        url: `${API_URL}/login`,
+        body: {
+          email: login.email,
+          password: login.password
         },
         failOnStatusCode: false
       })
