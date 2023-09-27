@@ -6,7 +6,11 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     env: {
-      API_URL: 'https://serverest.dev'
+      API_URL: 'https://serverest.dev',
+      hideCredentials: true,
+      requestMode: true
     }
   },
+  fixturesFolder: false,
+  video: false
 });

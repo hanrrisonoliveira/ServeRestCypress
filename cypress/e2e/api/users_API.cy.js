@@ -2,7 +2,7 @@ const API_URL = Cypress.env('API_URL')
 
 describe('Users test', () => {
     it('Search for all registered users', () => {
-        cy.api({
+        cy.request({
             method: 'GET',
             url: `${API_URL}/usuarios`
         }).then(({ status, body }) => {
@@ -21,7 +21,7 @@ describe('Users test', () => {
     })
 
     it('Administrator users', () => {
-        cy.api({
+        cy.request({
             method: 'GET',
             url: `${API_URL}/usuarios`
         }).then(({ status, body }) => {
@@ -42,7 +42,7 @@ describe('Users test', () => {
     })
 
     it('Non administrator users ', () => {
-        cy.api({
+        cy.request({
             method: 'GET',
             url: `${API_URL}/usuarios`
         }).then(({ status, body }) => {
