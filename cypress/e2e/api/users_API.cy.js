@@ -2,10 +2,8 @@ const API_URL = Cypress.env('API_URL')
 
 describe('Users test', () => {
     it('Search for all registered users', () => {
-        cy.request({
-            method: 'GET',
-            url: `${API_URL}/usuarios`
-        }).then(({ status, body }) => {
+        cy.api_users()
+        .then(({ status, body }) => {
             expect(status).to.equal(200)
             expect(body.usuarios.length)
 
@@ -21,10 +19,8 @@ describe('Users test', () => {
     })
 
     it('Administrator users', () => {
-        cy.request({
-            method: 'GET',
-            url: `${API_URL}/usuarios`
-        }).then(({ status, body }) => {
+        cy.api_users()
+        .then(({ status, body }) => {
             expect(status).to.equal(200)
             expect(body.usuarios.length)
 
@@ -42,10 +38,8 @@ describe('Users test', () => {
     })
 
     it('Non administrator users ', () => {
-        cy.request({
-            method: 'GET',
-            url: `${API_URL}/usuarios`
-        }).then(({ status, body }) => {
+        cy.api_users()
+        .then(({ status, body }) => {
             expect(status).to.equal(200)
             expect(body.usuarios.length)
 
