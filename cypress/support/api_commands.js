@@ -1,17 +1,6 @@
 const API_URL = Cypress.env('API_URL')
 
-Cypress.Commands.add('api_login', login => {
-    cy.request({
-        method: 'POST',
-        url: `${API_URL}/login`,
-        body: {
-          email: login.email,
-          password: login.password
-        }
-      })
-})
-
-Cypress.Commands.add('api_loginFailure', login => {
+Cypress.Commands.add('api_login', (login, failOnStatusCode = true) => {
     cy.request({
         method: 'POST',
         url: `${API_URL}/login`,
@@ -19,6 +8,6 @@ Cypress.Commands.add('api_loginFailure', login => {
           email: login.email,
           password: login.password
         },
-        failOnStatusCode: false
+        failOnStatusCode
       })
 })

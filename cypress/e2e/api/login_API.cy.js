@@ -6,6 +6,7 @@ describe('Login test', () => {
       password: 'teste'
     }
 
+    // Por padrão, failOnStatusCode será true aqui
     cy.api_login(login)
       .should(({ status }) => {
         expect(status).to.equal(200)
@@ -14,13 +15,12 @@ describe('Login test', () => {
   })
 
   it('Login failure - 401', () => {
-
     const login = {
       email: 'invalidemail@qa.com',
       password: 'error'
     }
 
-    cy.api_loginFailure(login)
+    cy.api_login(login, false)
       .should(({ status, body }) => {
         expect(status).to.equal(401)
         expect(body).property('message', 'Email e/ou senha inválidos')
