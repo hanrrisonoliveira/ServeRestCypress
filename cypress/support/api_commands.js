@@ -18,3 +18,10 @@ Cypress.Commands.add('api_users', () => {
     url: `${API_URL}/usuarios`
   })
 })
+
+Cypress.Commands.add('api_products', () => {
+  cy.request({
+    method: 'GET',
+    url: `${API_URL}/produtos`
+  })
+})
