@@ -7,6 +7,7 @@ This is a repository that contains API and GUI test automation for a software ca
 ## Library
 
 - cypress-plugin-api
+- faker
 
 ## Automated Tests
 
