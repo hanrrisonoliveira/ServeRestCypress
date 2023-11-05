@@ -183,6 +183,7 @@
   "author": "Hanrrison Oliveira <github.com/hanrrisonoliveira>",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
     "cypress": "^13.2.0"
   }
 }
