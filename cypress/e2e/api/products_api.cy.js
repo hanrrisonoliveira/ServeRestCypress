@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 const API_URL = Cypress.env('API_URL')
 
 describe('Products test', () => {
@@ -17,4 +18,25 @@ describe('Products test', () => {
             }
         })
     })
+
+    describe('Register products', () => {
+
+        it('Sucessfully register products', () => { //Pode acontecer de tentar cadastrar o mesmo produto, devido a utilização do faker
+
+            const registerProducts = {
+                nome: faker.commerce.product(),
+                preco: faker.commerce.price(),
+                descricao: faker.commerce.productDescription(),
+                quantidade: faker.number.int({ min: 1, max: 10 })
+              }
+    
+            cy.api_register_products(registerProducts)
+            .then(response => {
+                expect(response.status).to.equal(201)
+                expect(response.body.message).to.equal('Cadastro realizado com sucesso')
+            })
+        })
+    })
+    
+
 })
