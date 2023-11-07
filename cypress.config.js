@@ -5,6 +5,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    baseUrl: 'https://front.serverest.dev/',
     env: {
       API_URL: 'https://serverest.dev',
       hideCredentials: true,
